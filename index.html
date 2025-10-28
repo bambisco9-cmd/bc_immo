@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>BC Immo — Agence Prestige</title>
+  <style>
+    :root {
+      --dark: #0f0c0a;
+      --gold: #d4af37;
+      --text-light: #f4f1ee;
+      --muted-light: #c9c3bd;
+      --card-dark: #1a1816;
+    }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Segoe UI',sans-serif;background:var(--dark);color:var(--text-light);}
+    header{padding:20px 30px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #2c2a28;}
+    .brand{display:flex;align-items:center;gap:12px;}
+    .logo{width:50px;height:50px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--dark);font-size:22px;font-weight:bold;}
+    header nav a{color:var(--text-light);text-decoration:none;margin-left:24px;padding:6px 10px;border-radius:6px;transition:background 0.3s;color:var(--text-light);}
+    header nav a:hover{background:var(--gold);color:var(--dark);}
+    .active-nav{background:var(--gold);color:var(--dark);}
+    .container{max-width:1100px;margin:40px auto;padding:0 20px;}
+    .hero{text-align:center;padding:60px 0;}
+    .hero h1{font-size:38px;margin-bottom:16px;color:var(--gold);}
+    .hero p{font-size:18px;color:var(--muted-light);max-width:700px;margin:0 auto 32px;}
+    .btn{background:var(--gold);color:var(--dark);padding:14px 28px;border:none;border-radius:8px;font-size:16px;cursor:pointer;transition:opacity 0.3s;}
+    .btn:hover{opacity:0.9;}
+    .cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:24px;margin-top:32px;}
+    .card{background:var(--card-dark);border-radius:12px;overflow:hidden;display:flex;flex-direction:column;transition:transform 0.3s;}
+    .card:hover{transform:translateY(-6px);}
+    .thumb{height:200px;background-size:cover;background-position:center;}
+    .card-body{padding:16px;flex:1;display:flex;flex-direction:column;}
+    .card-body .title{font-size:20px;color:var(--text-light);margin-bottom:6px;}
+    .card-body .info{color:var(--muted-light);font-size:14px;margin-bottom:12px;}
+    .card-body .price{font-size:22px;color:var(--gold);font-weight:bold;margin-top:auto;}
+    section{margin-top:60px;}
+    h2{font-size:28px;color:var(--gold);margin-bottom:16px;text-align:center;}
+    p.lead{text-align:center;color:var(--muted-light);margin-bottom:32px;}
+    .about, .contact{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;}
+    .about-text{color:var(--muted-light);font-size:16px;}
+    .contact-form{background:var(--card-dark);padding:24px;border-radius:12px;}
+    .contact-form label{display:block;margin-bottom:12px;color:var(--muted-light);}
+    .contact-form input,.contact-form textarea{width:100%;padding:12px;border:1px solid #3a3836;border-radius:8px;background:#2c2a28;color:var(--text-light);margin-top:6px;}
+    .contact-form button{margin-top:14px;}
+    footer{text-align:center;padding:20px;margin-top:60px;color:var(--muted-light);border-top:1px solid #2c2a28;}
+    @media(max-width:800px){.about,.contact{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <div class="logo">BC</div>
+    <div style="color: var(--text-light); font-weight: bold; font-size: 20px;">BC Immo</div>
+  </div>
+  <nav>
+    <a href="#home" class="active-nav">Accueil</a>
+    <a href="#biens">Biens</a>
+    <a href="#a-propos">À propos</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main class="container">
+  <section id="home" class="hero">
+    <h1>BC Immo — Votre adresse de prestige</h1>
+    <p>Découvrez nos biens haut de gamme à vendre ou à louer, en exclusivité. Le luxe accessible pour vos rêves immobiliers.</p>
+    <button class="btn" onclick="scrollToSection('biens')">Découvrir nos biens</button>
+  </section>
+
+  <section id="biens">
+    <h2>Nos biens d’exception</h2>
+    <p class="lead">Sélection de propriétés parfaitement choisies pour un style de vie raffiné.</p>
+    <div class="cards" id="cardsContainer"></div>
+  </section>
+
+  <section id="a-propos">
+    <h2>À propos de BC Immo</h2>
+    <div class="about">
+      <div class="about-text">
+        <p>BC Immo est une agence immobilière de prestige, dédiée à la vente, location et gestion de biens nobles. Nous accompagnons nos clients avec discrétion, rigueur et excellence.</p>
+        <ul>
+          <li>Biens de luxe sélectionnés</li>
+          <li>Accompagnement personnalisé</li>
+          <li>Confidentialité & sécurité</li>
+        </ul>
+      </div>
+      <div>
+        <p class="about-text"><strong>Contact rapide :</strong><br>
+          Téléphone : <span style="color: var(--gold);">+221 77 794 26 25</span><br>
+          Adresse : Dakar<br>
+          Email : contact@bc-immo.local
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contactez-nous</h2>
+    <div class="contact">
+      <div>
+        <form class="contact-form" id="contactForm">
+          <label>Nom complet
+            <input type="text" name="name" required>
+          </label>
+          <label>Email
+            <input type="email" name="email" required>
+          </label>
+          <label>Message
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+          <button type="submit" class="btn">Envoyer</button>
+          <p id="fdbk" style="color: var(--muted-light); margin-top: 12px;"></p>
+        </form>
+      </div>
+      <div>
+        <p class="about-text">Disponible du lundi au vendredi de 09h à 18h. Le samedi sur rendez-vous.</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; BC Immo — Site de démonstration luxe. Tous droits réservés.
+</footer>
+
+<script>
+const PROPS=[
+  {id:1,title:'Villa d’architecte 5 ch',price:'120 000 000 FCFA',loc:'Dakar – Ngor',img:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=60'},
+  {id:2,title:'Penthouse vue mer',price:'95 000 000 FCFA',loc:'Dakar – Almadies',img:'https://images.unsplash.com/photo-1600585154341-be6161a56a0d?auto=format&fit=crop&w=800&q=60'},
+  {id:3,title:'Résidence haut standing',price:'180 000 000 FCFA',loc:'Dakar – Plateau',img:'https://images.unsplash.com/photo-1600585154342-be6161a56a0e?auto=format&fit=crop&w=800&q=60'},
+  {id:4,title:'Appartement 3 ch rénové',price:'55 000 000 FCFA',loc:'Dakar – Liberté',img:'https://images.unsplash.com/photo-1600585154343-be6161a56a0f?auto=format&fit=crop&w=800&q=60'}
+];
+
+function createCard(p){const c=document.createElement('div');c.className='card';const th=document.createElement('div');th.className='thumb';th.style.backgroundImage=`url(${p.img})`;const bd=document.createElement('div');bd.className='card-body';bd.innerHTML=`<div class="title">${p.title}</div><div class="info">${p.loc}</div><div class="price">${p.price}</div>`;c.appendChild(th);c.appendChild(bd);return c;}
+
+const container=document.getElementById('cardsContainer');PROPS.forEach(p=>container.appendChild(createCard(p)));
+
+function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
+
+document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();const name=this.name.value.trim();document.getElementById('fdbk').textContent=`Merci ${name}, message bien reçu (version de démonstration).`;this.reset();});
+</script>
+</body>
+</html>
