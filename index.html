@@ -37,14 +37,7 @@
     section{margin-top:60px;}
     h2{font-size:28px;color:var(--gold);margin-bottom:16px;text-align:center;}
     p.lead{text-align:center;color:var(--muted-light);margin-bottom:32px;}
-    .about, .contact{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;}
-    .about-text{color:var(--muted-light);font-size:16px;}
-    .contact-form{background:var(--card-dark);padding:24px;border-radius:12px;}
-    .contact-form label{display:block;margin-bottom:12px;color:var(--muted-light);}
-    .contact-form input,.contact-form textarea{width:100%;padding:12px;border:1px solid #3a3836;border-radius:8px;background:#2c2a28;color:var(--text-light);margin-top:6px;}
-    .contact-form button{margin-top:14px;}
     footer{text-align:center;padding:20px;margin-top:60px;color:var(--muted-light);border-top:1px solid #2c2a28;}
-    @media(max-width:800px){.about,.contact{grid-template-columns:1fr;}}
   </style>
 </head>
 <body>
@@ -56,7 +49,6 @@
   <nav>
     <a href="#home" class="active-nav">Accueil</a>
     <a href="#biens">Biens</a>
-    <a href="#a-propos">À propos</a>
     <a href="#contact">Contact</a>
   </nav>
 </header>
@@ -64,81 +56,39 @@
 <main class="container">
   <section id="home" class="hero">
     <h1>BC Immo — Votre adresse de prestige</h1>
-    <p>Découvrez nos biens haut de gamme à vendre ou à louer, en exclusivité. Le luxe accessible pour vos rêves immobiliers.</p>
-    <button class="btn" onclick="scrollToSection('biens')">Découvrir nos biens</button>
+    <p>Découvrez nos biens à louer à Dakar, avec des tarifs adaptés et un accompagnement personnalisé.</p>
   </section>
 
   <section id="biens">
-    <h2>Nos biens d’exception</h2>
-    <p class="lead">Sélection de propriétés parfaitement choisies pour un style de vie raffiné.</p>
+    <h2>Nos biens à louer</h2>
+    <p class="lead">Sélection de propriétés avec localisation et prix.</p>
     <div class="cards" id="cardsContainer"></div>
-  </section>
-
-  <section id="a-propos">
-    <h2>À propos de BC Immo</h2>
-    <div class="about">
-      <div class="about-text">
-        <p>BC Immo est une agence immobilière de prestige, dédiée à la vente, location et gestion de biens nobles. Nous accompagnons nos clients avec discrétion, rigueur et excellence.</p>
-        <ul>
-          <li>Biens de luxe sélectionnés</li>
-          <li>Accompagnement personnalisé</li>
-          <li>Confidentialité & sécurité</li>
-        </ul>
-      </div>
-      <div>
-        <p class="about-text"><strong>Contact rapide :</strong><br>
-          Téléphone : <span style="color: var(--gold);">+221 77 794 26 25</span><br>
-          Adresse : Dakar<br>
-          Email : contact@bc-immo.local
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2>Contactez-nous</h2>
-    <div class="contact">
-      <div>
-        <form class="contact-form" id="contactForm">
-          <label>Nom complet
-            <input type="text" name="name" required>
-          </label>
-          <label>Email
-            <input type="email" name="email" required>
-          </label>
-          <label>Message
-            <textarea name="message" rows="5" required></textarea>
-          </label>
-          <button type="submit" class="btn">Envoyer</button>
-          <p id="fdbk" style="color: var(--muted-light); margin-top: 12px;"></p>
-        </form>
-      </div>
-      <div>
-        <p class="about-text">Disponible du lundi au vendredi de 09h à 18h. Le samedi sur rendez-vous.</p>
-      </div>
-    </div>
   </section>
 </main>
 
 <footer>
-  &copy; BC Immo — Site de démonstration luxe. Tous droits réservés.
+  &copy; BC Immo — Site de démonstration. Tous droits réservés.
 </footer>
 
 <script>
 const PROPS=[
-  {id:1,title:'Villa d’architecte 5 ch',price:'120 000 000 FCFA',loc:'Dakar – Ngor',img:'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=60'},
-  {id:2,title:'Penthouse vue mer',price:'95 000 000 FCFA',loc:'Dakar – Almadies',img:'https://images.unsplash.com/photo-1600585154341-be6161a56a0d?auto=format&fit=crop&w=800&q=60'},
-  {id:3,title:'Résidence haut standing',price:'180 000 000 FCFA',loc:'Dakar – Plateau',img:'https://images.unsplash.com/photo-1600585154342-be6161a56a0e?auto=format&fit=crop&w=800&q=60'},
-  {id:4,title:'Appartement 3 ch rénové',price:'55 000 000 FCFA',loc:'Dakar – Liberté',img:'https://images.unsplash.com/photo-1600585154343-be6161a56a0f?auto=format&fit=crop&w=800&q=60'}
+  {title:'Appartement 1 ch', price:'55 000 FCFA', loc:'Dakar – Ngor', img:'img1.jpg'},
+  {title:'Appartement 2 ch', price:'150 000 FCFA', loc:'Dakar – Almadies', img:'img2.jpg'},
+  {title:'Appartement 3 ch', price:'225 000 FCFA', loc:'Dakar – Plateau', img:'img3.jpg'},
+  {title:'Villa de luxe', price:'1 000 000 FCFA', loc:'Dakar – Mermoz', img:'img4.jpg'}
 ];
 
-function createCard(p){const c=document.createElement('div');c.className='card';const th=document.createElement('div');th.className='thumb';th.style.backgroundImage=`url(${p.img})`;const bd=document.createElement('div');bd.className='card-body';bd.innerHTML=`<div class="title">${p.title}</div><div class="info">${p.loc}</div><div class="price">${p.price}</div>`;c.appendChild(th);c.appendChild(bd);return c;}
+function createCard(p){
+  const c=document.createElement('div');c.className='card';
+  const th=document.createElement('div');th.className='thumb';th.style.backgroundImage=`url(${p.img})`;
+  const bd=document.createElement('div');bd.className='card-body';
+  bd.innerHTML=`<div class="title">${p.title}</div><div class="info">${p.loc}</div><div class="price">${p.price}</div>`;
+  c.appendChild(th);c.appendChild(bd);
+  return c;
+}
 
-const container=document.getElementById('cardsContainer');PROPS.forEach(p=>container.appendChild(createCard(p)));
-
-function scrollToSection(id){document.getElementById(id).scrollIntoView({behavior:'smooth'});}
-
-document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();const name=this.name.value.trim();document.getElementById('fdbk').textContent=`Merci ${name}, message bien reçu (version de démonstration).`;this.reset();});
+const container=document.getElementById('cardsContainer');
+PROPS.forEach(p=>container.appendChild(createCard(p)));
 </script>
 </body>
 </html>
